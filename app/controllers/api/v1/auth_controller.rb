@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
   skip_before_action :authorized, only: [:create]
   
   def create # POST /api/v1/login
-    @user = User.find_by(username: user_login_params[:name])
+    @user = User.find_by(username: user_login_params[:username])
     # @user.authenticate('password')
     byebug
     if @user && @user.authenticate(user_login_params[:password])
@@ -17,7 +17,7 @@ class Api::V1::AuthController < ApplicationController
   
   def user_login_params
     # { user: { username: 'Chandler Bing', password: 'hi' } }
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:username, :password)
   
   end
 end
