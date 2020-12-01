@@ -69,7 +69,9 @@ ActiveRecord::Schema.define(version: 2020_11_19_232525) do
     t.string "name"
     t.integer "age"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
+    t.string "bio", default: "im a cool person"
+    t.string "image", default: "https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

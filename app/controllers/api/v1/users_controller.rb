@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :logged_in?, only: [:create]
   def index
     users = User.all
     render json: users
@@ -10,7 +11,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(user_params)
+    user = User.new(user_params)
+    if user.valid?
+      user.save
+      render json: {user: user}, status: :created
+    else
+      render json: {error:"failed to create user"}, status: :not_acceptable
+    end
+
   end
 
   def destroy
@@ -26,7 +34,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:age,:username,:password)
+    params.require(:user).permit(:name,:age,:username,:password_digest)
   end
 
   def find_user

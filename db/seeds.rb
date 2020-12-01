@@ -10,7 +10,7 @@ Article.destroy_all
 CommentBox.destroy_all
 Comment.destroy_all
 
-u1 = User.create!(name: "ben" , age: 22 , username: "benjamin", password: "password" )
+u1 = User.create!(name: "ben" , age: 22 , username: "benjamin", password_digest: "password", bio:"just a dude" )
 
 a1 = Article.create!(webname: "website" , author: "author" , title: "test article" , description: "this is a test article", link:"link to article", imglink: "link to article img" , createdate: "2020-11-20T09:20:19Z" , content: "this is the content of the article")
 

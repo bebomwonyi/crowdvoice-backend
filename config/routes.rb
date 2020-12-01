@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :comment_box
       resources :save_articles
       resources :user_articles
+
+      post "/login", to: "auth#create"
     end
   end
 end
