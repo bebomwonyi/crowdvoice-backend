@@ -1,4 +1,6 @@
 class Api::V1::ArticlesController < ApplicationController
+  skip_before_action :authorized, only: [:index]
+
   def index
     articles = Article.all
     render json: articles

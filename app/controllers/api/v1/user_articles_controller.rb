@@ -11,6 +11,7 @@ class Api::V1::UserArticlesController < ApplicationController
 
   def create
     ua = UserArticle.create!(user_article_params)
+    render json: ua
   end
 
   def destroy
@@ -26,7 +27,7 @@ class Api::V1::UserArticlesController < ApplicationController
   private
 
   def user_article_params
-    params.require(:userarticle).permit(:webname,:author,:title,:description,:artlink,:imglink,:content)
+    params.require(:user_articles).permit(:user_id, :refarttitle,:author,:title,:description,:refartimgurl, :refarturl,:content)
   end
 
   def find_user_article

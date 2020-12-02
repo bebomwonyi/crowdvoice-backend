@@ -1,18 +1,19 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :index]
 
   def index
     users = User.all
-    render json: users
+    render json: users, include: [:user_articles]
   end
 
+
+  # render json: users, include: {user_articles: {only: [:author]}} 
   def show
     user = find_user
     render json: user
   end
 
   def create
-    byebug
     user = User.new(user_params)
     if user.valid?
       user.save
@@ -30,7 +31,7 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     user = find_user
-    user.update(find_user)
+    user.update(user_params)
   end
 
   private

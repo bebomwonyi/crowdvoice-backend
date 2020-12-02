@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 2020_11_19_232525) do
 
   create_table "articles", force: :cascade do |t|
-    t.string "webname"
+    t.string "refarttitle", default: "not available"
+    t.string "refartimgurl", default: "not available"
+    t.string "refarturl", default: "not available"
     t.string "author"
     t.string "title"
     t.string "description"
-    t.string "link"
-    t.string "imglink"
     t.datetime "createdate"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
@@ -54,12 +54,13 @@ ActiveRecord::Schema.define(version: 2020_11_19_232525) do
   end
 
   create_table "user_articles", force: :cascade do |t|
-    t.string "webname"
+    t.integer "user_id"
+    t.string "refarttitle"
+    t.string "refartimgurl"
+    t.string "refarturl"
     t.string "author"
     t.string "title"
     t.string "description"
-    t.string "artlink"
-    t.string "imglink"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

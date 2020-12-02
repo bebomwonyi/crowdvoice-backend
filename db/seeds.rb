@@ -12,7 +12,7 @@ Comment.destroy_all
 
 u1 = User.create!(name: "ben" , age: 22 , username: "benjamin", password: "password", bio:"just a dude" )
 
-a1 = Article.create!(webname: "website" , author: "author" , title: "test article" , description: "this is a test article", link:"link to article", imglink: "link to article img" , createdate: "2020-11-20T09:20:19Z" , content: "this is the content of the article")
+a1 = Article.create!( author: "author" , title: "test article" , description: "this is a test article", createdate: "2020-11-20T09:20:19Z" , content: "this is the content of the article")
 
 cb1 = CommentBox.create!( article_id: a1.id )
 
