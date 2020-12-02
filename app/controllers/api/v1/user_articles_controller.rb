@@ -1,7 +1,7 @@
 class Api::V1::UserArticlesController < ApplicationController
   def index
     uas = UserArticle.all
-    render json: uas
+    render json: uas, include: [:article]
   end
 
   def show

@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_19_232525) do
 
   create_table "articles", force: :cascade do |t|
+    t.integer "user_article_id"
     t.string "refarttitle", default: "not available"
     t.string "refartimgurl", default: "not available"
     t.string "refarturl", default: "not available"
