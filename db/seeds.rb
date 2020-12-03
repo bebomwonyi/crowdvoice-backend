@@ -15,7 +15,7 @@ u1 = User.create!(name: "ben" , age: 22 , username: "benjamin", password: "passw
 
 ua1 = UserArticle.create!( user_id: u1.id ,refarttitle:"some other article", refartimgurl: "https://i.kym-cdn.com/entries/icons/original/000/033/711/cover6.jpg" , refarturl:"some website" , author: "author" , title: "test user article" , description: "this is a test article" , content: "this is the content of the article")
 
-a1 = Article.create!( user_article_id: ua1.id , author: "author" , title: "test article" , description: "this is a test article", createdate: "2020-11-20T09:20:19Z" , content: "this is the content of the article")
+a1 = Article.create!( user_article_id: ua1.id , author: "author" , title: "test article" , description: "this is a test article", content: "this is the content of the article")
 
 cb1 = CommentBox.create!( article_id: a1.id )
 

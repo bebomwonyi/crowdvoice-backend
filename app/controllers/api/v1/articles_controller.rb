@@ -13,6 +13,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   def create
     article = Article.create!(article_params)
+    render json: article
   end
 
   def destroy
@@ -28,7 +29,7 @@ class Api::V1::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:webname,:author,:title,:description,:link,:imglink,:createdate,:content)
+    params.require(:articles).permit(:refarttitle,:author,:title,:description,:refarturl,:refartimgurl,:content,:user_article_id)
   end
 
   def find_article

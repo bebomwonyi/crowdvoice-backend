@@ -8,7 +8,6 @@ class CreateArticles < ActiveRecord::Migration[6.0]
       t.string :author
       t.string :title
       t.string :description
-      t.datetime :createdate
       t.string :content
 
       t.timestamps
