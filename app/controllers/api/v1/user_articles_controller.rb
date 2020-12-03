@@ -1,4 +1,6 @@
 class Api::V1::UserArticlesController < ApplicationController
+  # skip_before_action :authorized
+
   def index
     uas = UserArticle.all
     render json: uas, include: [:article]
